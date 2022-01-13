@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+
+    <form action="@Url.Action("Excel")" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <b>Başlangıç</b>
+                    <input name="baslangic" value="868081770313" placeholder="Bu barkod dahil - Son hane hariç" maxlength="12" class="form-control" type="number" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <b>Bitiş</b>
+                    <input name="bitis" value="868081770318" class="form-control" placeholder="Bu barkod hariç - Son hane hariç" maxlength="12" type="number" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-danger" type="submit">Excel Çıktı Al</button>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="row mt-5" style="margin-top:50px">
+        <div class="col-12">
+            <table BGCOLOR="#FFFFFF" id="table1">
+                <tr> 
+                    <form name="myForm">
+
+                        <input TYPE="text" NAME="numero" value="868081770313" SIZE=%40 MAXLENGTH=12>
+                        <input TYPE="text" NAME=cc SIZE=%20 readonly style="background-color: lightyellow">
+                        <input TYPE="button" VALUE="Hesapla" ONCLICK="ccc13(this.form)" style="background-color: firebrick; border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;">
+                    </form> 
+                </tr> 
+            </table>
+        </div>
+    </div>
+
+</div>

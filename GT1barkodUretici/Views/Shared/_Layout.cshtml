@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GTIN Kontrol Basamağı Hesaplama</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("GTIN Kontrol Basamağı Hesaplama", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - muratsahin.co</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<SCRIPT LANGUAGE="JavaScript">
+    function ccc13(form) {
+        factor = 3;
+        sum = 0;
+        for (index = form.numero.value.length; index > 0; --index) { 
+            sum = sum + form.numero.value.substring(index - 1, index) * factor;
+            factor = 4 - factor;
+        }
+        cc = ((1000 - sum) % 10);
+        form.cc.value = form.numero.value + cc;
+        result = form.cc.value;
+        if (form.numero.value.length != 12) {
+            alert("Lütfen 12 karakter girin")
+            form.cc.value = ""
+            form.chiffre.value = "";
+        }
+    }
+
+</SCRIPT> 
